@@ -9,12 +9,4 @@
     <servlet-class>mvc.IMCController</servlet-class>
   </servlet>
   
-  <servlet-mapping>
-  <servlet-name>IMCController</servlet-name>
-  <url-pattern>/imc</url-pattern>
-  </servlet-mapping>
-  
-  
-  
-
 </web-app>

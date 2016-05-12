@@ -12,7 +12,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <form method="post" action="IMCController.java">
+        <form method="post" action="IMCController">
             Altura:<input type="text" name="altura"/><br>
             Peso:<input type="text" name="peso"/><br>
                 <input type="submit"/>
