@@ -1,0 +1,6 @@
+/.settings/
+/target/
+/db/
+/.classpath
+/.project
+/derby.log
