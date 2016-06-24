@@ -62,7 +62,11 @@ public class LoginController extends HttpServlet {
 								session.setAttribute("usuario", usuario);				
 								resp.sendRedirect("produto");
 							
-						} else {
+						} else if (op.equals("registro")){
+							req.getRequestDispatcher("/registro").forward(req,resp);
+						}
+							
+							else {
 							msg = "Usuário ou senha incorreta.";
 						 }
 						} else if (op.equals("")) {

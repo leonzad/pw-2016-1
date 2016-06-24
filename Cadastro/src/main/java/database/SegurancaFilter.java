@@ -1,7 +1,10 @@
 package database;
 
 import java.io.IOException;
-
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Set;
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
@@ -15,6 +18,10 @@ import javax.servlet.http.HttpSession;
 
 @WebFilter("/*")
 public class SegurancaFilter implements Filter {
+	
+	 private static final Set<String> ALLOWED_PATHS = Collections.unmodifiableSet(new HashSet<>(
+		        Arrays.asList("", "/login", "/logout", "/registro", "/dbclient.jsp")));	
+	
 	@Override
 	public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain)
 			throws ServletException, IOException {
@@ -25,20 +32,23 @@ public class SegurancaFilter implements Filter {
 		//Obtém a sessão corrente. Caso não exista, retorna "null".
 		HttpSession session = request.getSession(false);
 		//Endereço de login.
-		String loginUri = request.getContextPath() + "/login";
+		//String loginUri = request.getContextPath() + "/login";
+		String path = request.getRequestURI().substring(request.getContextPath().length()).replaceAll("[/]+$", ""); 
 
 		
 		boolean loggedIn = session != null && session.getAttribute("usuario") != null;
-
-		boolean loginRequest = request.getRequestURI().equals(loginUri);
+		boolean allowedPath = ALLOWED_PATHS.contains(path);
+		//boolean loginRequest = request.getRequestURI().equals(loginUri);
 
 		//Se estiver logado ou se for a página de login.
-		if (loggedIn || loginRequest) {
+		//if (loggedIn || loginRequest) {
+		if (loggedIn || allowedPath) {
 			//Segue adiante.
 			chain.doFilter(request, response);
 		} else {
 			//Redireciona para o login.
-			response.sendRedirect(loginUri);
+			//response.sendRedirect(loginUri);
+			response.sendRedirect(request.getContextPath() + "/login");
 		}
 	}
 
