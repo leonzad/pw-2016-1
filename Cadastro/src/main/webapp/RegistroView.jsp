@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Cadastro</title>
 
     <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
@@ -21,23 +21,23 @@
 <body>
 
 <div class="container">
-  <h2>Login</h2>
+  <h2>Registre-se</h2>
   <form class="form-horizontal" role="form">
     <div class="form-group">
       <label class="control-label col-sm-1" for="usuario">Usuário:</label>
       <div class="col-sm-4">
-        <input type="text" name="usuario" class="form-control" placeholder="walison">
+        <input type="text" name="usuario" class="form-control" placeholder="walison" required>
       </div>
     </div>
     <div class="form-group">
       <label class="control-label col-sm-1" for="senha">Senha:</label>
       <div class="col-sm-4">
-        <input type="password" class="form-control" name="senha" placeholder="123">
+        <input type="password" class="form-control" name="senha" placeholder="123" required>
       </div>
     </div>
     <div class="form-group">
       <div class="col-sm-offset-1 col-sm-4">
-        <button name="operacao" value="confirma" class="btn btn-default">Confirmar</button>
+        <button name="operacao" value="registro" class="btn btn-success">Registrar</button>
        
       </div>
     </div>

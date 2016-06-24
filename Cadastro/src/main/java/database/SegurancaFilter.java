@@ -20,7 +20,7 @@ import javax.servlet.http.HttpSession;
 public class SegurancaFilter implements Filter {
 	
 	 private static final Set<String> ALLOWED_PATHS = Collections.unmodifiableSet(new HashSet<>(
-		        Arrays.asList("", "/login", "/logout", "/registro", "/dbclient.jsp")));	
+		        Arrays.asList("/login", "/logout", "/registro", "/dbclient.jsp")));	
 	
 	@Override
 	public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain)

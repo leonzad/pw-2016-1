@@ -31,8 +31,7 @@ public class RegistroController extends HttpServlet {
 	
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		try {
-			
+		try {		
 			
 			String op = valor(req, "operacao", "");
 			String usuario = valor(req, "usuario", "");
@@ -40,6 +39,7 @@ public class RegistroController extends HttpServlet {
 			
 			if (op.equals("registro")) {
 				RegistroDao.inclui(usuario, senha);
+				resp.sendRedirect("login");
 			}
 			
 			/*String msg = "";

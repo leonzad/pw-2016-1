@@ -21,6 +21,10 @@ create table aluno (
 )
 
 */
+
+
+
+
 @WebServlet("/login")
 public class LoginController extends HttpServlet {
 	
@@ -53,7 +57,14 @@ public class LoginController extends HttpServlet {
 						ps.setString(2, senha);
 						ResultSet rs = ps.executeQuery();
 						//Verificação	
-						if (op.equals("entrar")) {
+						
+						if (op.equals("registro")){
+							//req.getRequestDispatcher("/registro").forward(req,resp);
+							resp.sendRedirect("/database/registro");
+						}
+						
+						
+						else if (op.equals("entrar")) {
 							if(rs.next()){
 								//É de verdade.
 								//Obter a sessão.
@@ -62,11 +73,9 @@ public class LoginController extends HttpServlet {
 								session.setAttribute("usuario", usuario);				
 								resp.sendRedirect("produto");
 							
-						} else if (op.equals("registro")){
-							req.getRequestDispatcher("/registro").forward(req,resp);
-						}
+					
 							
-							else {
+							}else {
 							msg = "Usuário ou senha incorreta.";
 						 }
 						} else if (op.equals("")) {
