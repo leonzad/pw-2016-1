@@ -1,2 +1,2 @@
 # pw-2016-1
-Programação Web
+Curso de Programação Web utilizando projetos Maven
